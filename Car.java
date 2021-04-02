@@ -1,20 +1,35 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Car here.
+ * car
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @chuk3 
+ * @3/26/21
  */
 public class Car extends Actor
 {
-    
-    /**
-     * Act - do whatever the Car wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() 
     {
+        move( Greenfoot.getRandomNumber(10) );
+        if( isAtEdge() )
+        {
+            setLocation( 25, getY() );
+        }
         
+        move( Greenfoot.getRandomNumber(10) );
+        restart();
+        if( isTouching( Frog.class ) )
+        {
+            Greenfoot.stop();
+        }
     }    
+    
+    public void restart()
+    {
+        if( isAtEdge() )
+        {
+            setLocation( 25, getY() );
+        }
+    }
 }
+
